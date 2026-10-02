@@ -12,4 +12,6 @@
 #include <raylib.h>
 #include <raymath.h>
 
+enum State {NORMAL};
+
 #endif
