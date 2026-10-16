@@ -1,23 +1,22 @@
 #include "game.hpp"
 
 Game::Game() {
+    #ifdef __EMSCRIPTEN__
     InitWindow(800, 600, "Planterguy Defense");
-
+    #else
+    InitWindow(800, 600, "Planterguy Defense");
+    SetConfigFlags(FLAG_WINDOW_HIGHDPI);
+    #ifndef __APPLE__
     int width, height;
-    int currentMonitor = GetCurrentMonitor();
-    int monitorWidth = GetMonitorWidth(currentMonitor);
-    int monitorHeight = GetMonitorHeight(currentMonitor);
-
-    if (monitorWidth * 3 > monitorHeight * 4) {
-        height = monitorHeight * 0.8f; width = height * 4 / 3;
-    } else {
-        width = monitorWidth * 0.8f; height = width * 3 / 4;
-    }
-
+    Vector2 scale = GetWindowScaleDPI();
+    width = (int)(800.0f * scale.x);
+    height = (int)(600.0f * scale.y);
+    SetWindowSize(width, height);
+    SetWindowPosition(48, 48);
+    #endif
     SetTargetFPS(60);
     SetExitKey(KEY_NULL);
-    SetWindowSize(width, height);
-    SetWindowPosition((monitorWidth - width) / 2, (monitorHeight - height) / 2);
+    #endif
 }
 
 void Game::loop() {
