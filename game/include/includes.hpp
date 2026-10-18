@@ -12,6 +12,10 @@
 #include <raylib.h>
 #include <raymath.h>
 
+enum SceneName {TITLE, LEVELSELECT, BATTLE, COLLECTION};
 enum State {NORMAL};
+
+using std::shared_ptr;
+using std::make_shared;
 
 #endif

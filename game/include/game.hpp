@@ -5,10 +5,17 @@
 
 class Game {
     public:
-        Camera2D camera = {0};
+        // System var
+        int width, height, logicWidth, logicHeight;
+        float scale = 0;
 
+        // Game system var
         int state = NORMAL;
+        bool menu = false;
         bool running = true;
+
+        // Game var
+
 
         Game();
         void loop();
