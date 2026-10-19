@@ -5,9 +5,9 @@ Game::Game() {
     #ifdef __EMSCRIPTEN__
     InitWindow(800, 600, "Planterguy Defense");
     #else
-    InitWindow(800, 600, "Planterguy Defense");
     SetConfigFlags(FLAG_WINDOW_HIGHDPI);
     SetConfigFlags(FLAG_VSYNC_HINT);
+    InitWindow(800, 600, "Planterguy Defense");
     #ifndef __APPLE__
     int width, height;
     Vector2 scale = GetWindowScaleDPI();
