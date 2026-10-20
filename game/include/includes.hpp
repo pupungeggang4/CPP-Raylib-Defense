@@ -8,6 +8,9 @@
 #include <string>
 #include <array>
 #include <unordered_map>
+#include <vector>
+
+#include <memory>
 
 #include <raylib.h>
 #include <raymath.h>

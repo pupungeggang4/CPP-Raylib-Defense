@@ -5,7 +5,7 @@
 
 class Render {
     public:
-        static void drawRect(std::vector<float>, Color);
+        static void drawRect(std::vector<float>, Color = BLACK);
         static void drawText(std::string, std::vector<float>, int size = 20, Color color = BLACK);
 };
 
