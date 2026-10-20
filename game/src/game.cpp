@@ -42,5 +42,7 @@ void Game::inputHandle() {
     if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) {
         Vector2 pos = GetMousePosition();
         std::cout << pos.x << ' ' << pos.y << std::endl;
+
+        scene->mouseUp(*this, pos);
     }
 }

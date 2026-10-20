@@ -8,7 +8,7 @@ class Scene;
 class Game {
     public:
         // System var
-        int width, height, logicWidth, logicHeight;
+        int width, height, logicWidth = 800, logicHeight = 600;
         float scale = 0;
 
         // Game system var
