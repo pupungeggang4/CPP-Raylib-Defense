@@ -4,15 +4,14 @@ Game::Game() {
     #ifdef __EMSCRIPTEN__
     InitWindow(800, 600, "Planterguy Defense");
     #else
-    InitWindow(800, 600, "Planterguy Defense");
     SetConfigFlags(FLAG_WINDOW_HIGHDPI);
+    InitWindow(800, 600, "Planterguy Defense");
     #ifndef __APPLE__
     int width, height;
     Vector2 scale = GetWindowScaleDPI();
     width = (int)(800.0f * scale.x);
     height = (int)(600.0f * scale.y);
     SetWindowSize(width, height);
-    SetWindowPosition(48, 48);
     #endif
     SetTargetFPS(60);
     SetExitKey(KEY_NULL);
