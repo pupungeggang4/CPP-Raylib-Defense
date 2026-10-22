@@ -24,6 +24,9 @@ void SceneTitle::render(Game& game) {
 }
 
 void SceneTitle::mouseUp(Game& game, Vector2 pos) {
+    if (Util::pointInsideRectUI(pos, UI::UITitle["button_start"])) {
+        game.changeSceneTo(LEVEL_SELECT);
+    }
     if (Util::pointInsideRectUI(pos, UI::UITitle["button_quit"])) {
         game.running = false;
     }

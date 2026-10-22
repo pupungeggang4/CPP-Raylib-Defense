@@ -18,7 +18,11 @@ Game::Game() {
     SetExitKey(KEY_NULL);
     #endif
 
-    scenes = {};
+    scenes = {
+        {TITLE, make_shared<SceneTitle>()},
+        {LEVEL_SELECT, make_shared<SceneLevelSelect>()},
+        {BATTLE, make_shared<SceneBattle>()},
+    };
     scenes.emplace(TITLE, make_shared<SceneTitle>());
     scene = scenes[TITLE];
     scene->ready(*this);
@@ -45,4 +49,9 @@ void Game::inputHandle() {
 
         scene->mouseUp(*this, pos);
     }
+}
+
+void Game::changeSceneTo(int targetScene) {
+    scene = scenes[targetScene];
+    scene->ready(*this);
 }
