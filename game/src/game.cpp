@@ -1,5 +1,6 @@
 #include "game.hpp"
 #include "scene.hpp"
+#include "asset.hpp"
 
 Game::Game() {
     #ifdef __EMSCRIPTEN__
@@ -17,6 +18,8 @@ Game::Game() {
     #endif
     SetExitKey(KEY_NULL);
     #endif
+
+    Asset::loadAsset();
 
     scenes = {
         {TITLE, make_shared<SceneTitle>()},
