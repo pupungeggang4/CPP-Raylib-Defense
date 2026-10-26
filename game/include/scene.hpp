@@ -25,6 +25,8 @@ class SceneTitle : public Scene {
 
 class SceneLevelSelect : public Scene {
     public:
+        int selectedLevel = -1;
+
         SceneLevelSelect();
         void ready(Game&) override;
         void update(Game&) override;

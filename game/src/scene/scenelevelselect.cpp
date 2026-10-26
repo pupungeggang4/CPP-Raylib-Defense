@@ -9,7 +9,7 @@
 #include "game.hpp"
 
 SceneLevelSelect::SceneLevelSelect() {
-
+    selectedLevel = -1;
 }
 
 void SceneLevelSelect::ready(Game& game) {
@@ -20,7 +20,7 @@ void SceneLevelSelect::update(Game& game) {
 
 void SceneLevelSelect::render(Game& game) {
     Render::drawText("Select Level", UI::UILevelSelect["text_title"]);
-    Render::drawTexture(Asset::texture["button_menu"], UI::UILevelSelect["button_back"]);
+    Render::drawTexture(Asset::texture["button_back"], UI::UILevelSelect["button_back"]);
 
     for (int i = 0; i < 15; i++) {
         int col = i % 5;
@@ -30,8 +30,12 @@ void SceneLevelSelect::render(Game& game) {
             UI::UILevelSelect["button_level"][1] + UI::UILevelSelect["button_level"][3] * row,
             UI::UILevelSelect["button_level"][4], UI::UILevelSelect["button_level"][5]
         };
-        Render::drawRect(rect, YELLOW);
-        std::vector<float> pos = {rect[0] + 20, rect[1] + 20};
+        if (i != selectedLevel) {
+            Render::drawRect(rect, YELLOW);
+        } else {
+            Render::drawRect(rect, GREEN);
+        }
+        std::vector<float> pos = {rect[0] + UI::UILevelSelect["text_level"][0], rect[1] + UI::UILevelSelect["text_level"][1]};
         Render::drawText(TextFormat("%d", i + 1), pos);
     }
 
@@ -40,7 +44,27 @@ void SceneLevelSelect::render(Game& game) {
 }
 
 void SceneLevelSelect::mouseUp(Game& game, Vector2 pos) {
+    for (int i = 0; i < 15; i++) {
+        int col = i % 5;
+        int row = (i - col) / 5;
+        std::vector<float> rect = {
+            UI::UILevelSelect["button_level"][0] + UI::UILevelSelect["button_level"][2] * col,
+            UI::UILevelSelect["button_level"][1] + UI::UILevelSelect["button_level"][3] * row,
+            UI::UILevelSelect["button_level"][4], UI::UILevelSelect["button_level"][5]
+        };
+
+        if (Util::pointInsideRectUI(pos, rect)) {
+            selectedLevel = i;
+        }
+    }
+
     if (Util::pointInsideRectUI(pos, UI::UILevelSelect["button_back"])) {
         game.changeSceneTo(TITLE);
+    }
+
+    if (Util::pointInsideRectUI(pos, UI::UILevelSelect["button_start"])) {
+        if (selectedLevel != -1) {
+            game.changeSceneTo(BATTLE);
+        }
     }
 }
