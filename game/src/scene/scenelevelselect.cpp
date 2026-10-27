@@ -9,10 +9,11 @@
 #include "game.hpp"
 
 SceneLevelSelect::SceneLevelSelect() {
-    selectedLevel = -1;
+    
 }
 
 void SceneLevelSelect::ready(Game& game) {
+    selectedLevel = -1;
 }
 
 void SceneLevelSelect::update(Game& game) {
@@ -25,7 +26,7 @@ void SceneLevelSelect::render(Game& game) {
     for (int i = 0; i < 15; i++) {
         int col = i % 5;
         int row = (i - col) / 5;
-        std::vector<float> rect = {
+        std::array<float, 6> rect = {
             UI::UILevelSelect["button_level"][0] + UI::UILevelSelect["button_level"][2] * col,
             UI::UILevelSelect["button_level"][1] + UI::UILevelSelect["button_level"][3] * row,
             UI::UILevelSelect["button_level"][4], UI::UILevelSelect["button_level"][5]
@@ -35,7 +36,7 @@ void SceneLevelSelect::render(Game& game) {
         } else {
             Render::drawRect(rect, GREEN);
         }
-        std::vector<float> pos = {rect[0] + UI::UILevelSelect["text_level"][0], rect[1] + UI::UILevelSelect["text_level"][1]};
+        std::array<float, 6> pos = {rect[0] + UI::UILevelSelect["text_level"][0], rect[1] + UI::UILevelSelect["text_level"][1]};
         Render::drawText(TextFormat("%d", i + 1), pos);
     }
 
@@ -47,7 +48,7 @@ void SceneLevelSelect::mouseUp(Game& game, Vector2 pos) {
     for (int i = 0; i < 15; i++) {
         int col = i % 5;
         int row = (i - col) / 5;
-        std::vector<float> rect = {
+        std::array<float, 6> rect = {
             UI::UILevelSelect["button_level"][0] + UI::UILevelSelect["button_level"][2] * col,
             UI::UILevelSelect["button_level"][1] + UI::UILevelSelect["button_level"][3] * row,
             UI::UILevelSelect["button_level"][4], UI::UILevelSelect["button_level"][5]

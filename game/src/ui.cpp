@@ -1,6 +1,6 @@
 #include "ui.hpp"
 
-std::unordered_map<std::string, std::vector<float>> UI::UITitle = {
+std::unordered_map<std::string, std::array<float, 6>> UI::UITitle = {
     {"text_title", {20, 20}},
     {"button_start", {160, 120, 480, 80}},
     {"text_start", {180, 140}},
@@ -12,7 +12,7 @@ std::unordered_map<std::string, std::vector<float>> UI::UITitle = {
     {"text_quit", {180, 380}},
 };
 
-std::unordered_map<std::string, std::vector<float>> UI::UILevelSelect = {
+std::unordered_map<std::string, std::array<float, 6>> UI::UILevelSelect = {
     {"text_title", {20, 20}},
     {"button_back", {740, 20, 40, 40}},
     {"button_level", {60, 80, 140, 140, 120, 120}},
@@ -21,10 +21,26 @@ std::unordered_map<std::string, std::vector<float>> UI::UILevelSelect = {
     {"text_start", {640, 520}}
 };
 
-std::unordered_map<std::string, std::vector<float>> UI::UIAdventureSelect = {
+std::unordered_map<std::string, std::array<float, 6>> UI::UIAdventureSelect = {
     {"text_title", {20, 20}},
     {"button_back", {740, 20, 40, 40}},
+    {"button_character", {60, 80, 140, 140, 120, 120}},
+    {"description_area", {480, 80, 240, 260}},
+    {"button_start", {620, 500, 160, 80}},
+    {"text_start", {640, 520}}
 };
 
-std::unordered_map<std::string, std::vector<float>> UI::UIBattle = {
+std::unordered_map<std::string, std::array<float, 6>> UI::UIBattle = {
+    {"button_menu", {740, 20, 40, 40}},
+};
+
+std::unordered_map<std::string, std::array<float, 6>> UI::UIMenu = {
+    {"rect", {160, 140, 480, 320}},
+    {"text_paused", {180, 160}},
+    {"button_resume", {160, 220, 480, 80}},
+    {"text_resume", {180, 240}},
+    {"button_exit", {160, 300, 480, 80}},
+    {"text_exit", {180, 320}},
+    {"button_quit", {160, 380, 480, 80}},
+    {"text_quit", {180, 400}}
 };

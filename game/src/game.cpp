@@ -24,6 +24,7 @@ Game::Game() {
     scenes = {
         {TITLE, make_shared<SceneTitle>()},
         {LEVEL_SELECT, make_shared<SceneLevelSelect>()},
+        {ADVENTURE_SELECT, make_shared<SceneAdventureSelect>()},
         {BATTLE, make_shared<SceneBattle>()},
     };
     scenes.emplace(TITLE, make_shared<SceneTitle>());

@@ -4,6 +4,7 @@
 #include "includes.hpp"
 
 class Game;
+class Menu;
 
 class Scene {
     public:
@@ -34,11 +35,32 @@ class SceneLevelSelect : public Scene {
         void mouseUp(Game&, Vector2) override;
 };
 
+class SceneAdventureSelect : public Scene {
+    public:
+        int selectedCharacter = -1;
+
+        SceneAdventureSelect();
+        void ready(Game&) override;
+        void update(Game&) override;
+        void render(Game&) override;
+        void mouseUp(Game&, Vector2) override;
+};
+
 class SceneBattle : public Scene {
     public:
+        shared_ptr<Menu> menu;
+
         SceneBattle();
         void ready(Game&) override;
         void update(Game&) override;
+        void render(Game&) override;
+        void mouseUp(Game&, Vector2) override;
+};
+
+class Menu : public Scene {
+    public:
+        Menu();
+        void ready(Game&) override;
         void render(Game&) override;
         void mouseUp(Game&, Vector2) override;
 };
