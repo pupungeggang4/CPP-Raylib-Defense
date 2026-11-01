@@ -15,7 +15,7 @@
 #include <raylib.h>
 #include <raymath.h>
 
-enum SceneName {TITLE, LEVEL_SELECT, ADVENTURE_SELECT, BATTLE, COLLECTION};
+enum SceneName {TITLE, LEVEL_SELECT, BATTLE, COLLECTION};
 enum State {NORMAL, READY, WIN, LOSE, NORMAL_A, START, REWARD, SELECT_NEXT, GAME_OVER};
 
 using std::shared_ptr;

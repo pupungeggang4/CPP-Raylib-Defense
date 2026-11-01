@@ -8,6 +8,7 @@ void Asset::loadAsset() {
     texture.emplace("arrow", LoadTexture("asset/image/arrow.png"));
     texture.emplace("button_menu", LoadTexture("asset/image/button_menu.png"));
     texture.emplace("button_back", LoadTexture("asset/image/button_back.png"));
+    texture.emplace("collection", LoadTexture("asset/image/collection.png"));
 }
 
 void Asset::disposeAsset() {

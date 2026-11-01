@@ -1,5 +1,6 @@
 #include "scene.hpp"
 #include "ui.hpp"
+#include "asset.hpp"
 #include "util.hpp"
 #include "render.hpp"
 #include "game.hpp"
@@ -25,6 +26,7 @@ void SceneTitle::render(Game& game) {
     Render::drawText("Erase Data", UI::UITitle["text_erase"]);
     Render::drawRect(UI::UITitle["button_quit"], YELLOW);
     Render::drawText("Quit Game", UI::UITitle["text_quit"]);
+    Render::drawTexture(Asset::texture["collection"], UI::UITitle["button_collection"]);
 }
 
 void SceneTitle::mouseUp(Game& game, Vector2 pos) {
@@ -32,6 +34,8 @@ void SceneTitle::mouseUp(Game& game, Vector2 pos) {
         game.changeSceneTo(LEVEL_SELECT);
     } else if (Util::pointInsideRectUI(pos, UI::UITitle["button_adventure"])) {
         game.changeSceneTo(BATTLE);
+    } else if (Util::pointInsideRectUI(pos, UI::UITitle["button_collection"])) {
+        game.changeSceneTo(COLLECTION);
     } else if (Util::pointInsideRectUI(pos, UI::UITitle["button_quit"])) {
         game.running = false;
     }

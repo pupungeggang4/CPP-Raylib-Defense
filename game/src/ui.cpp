@@ -12,6 +12,7 @@ std::unordered_map<std::string, std::array<float, 6>> UI::UITitle = {
     {"text_erase", {180, 380}},
     {"button_quit", {160, 440, 480, 80}},
     {"text_quit", {180, 460}},
+    {"button_collection", {700, 500, 80, 80}}
 };
 
 std::unordered_map<std::string, std::array<float, 6>> UI::UILevelSelect = {
@@ -25,6 +26,11 @@ std::unordered_map<std::string, std::array<float, 6>> UI::UILevelSelect = {
     {"text_next", {360, 520}},
     {"button_start", {620, 500, 120, 80}},
     {"text_start", {640, 520}}
+};
+
+std::unordered_map<std::string, std::array<float, 6>> UI::UICollection = {
+    {"text_title", {20, 20}},
+    {"button_back", {740, 20, 40, 40}},
 };
 
 std::unordered_map<std::string, std::array<float, 6>> UI::UIBattle = {

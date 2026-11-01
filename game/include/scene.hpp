@@ -47,6 +47,15 @@ class SceneBattle : public Scene {
         void mouseUp(Game&, Vector2) override;
 };
 
+class SceneCollection : public Scene {
+    public:
+        SceneCollection();
+        void ready(Game&) override;
+        void update(Game&) override;
+        void render(Game&) override;
+        void mouseUp(Game&, Vector2) override;
+};
+
 class Menu : public Scene {
     public:
         Menu();
