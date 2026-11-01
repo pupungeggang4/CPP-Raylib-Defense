@@ -74,7 +74,9 @@ void SceneLevelSelect::mouseUp(Game& game, Vector2 pos) {
         if (page < 7) page += 1;
     } else if (Util::pointInsideRectUI(pos, UI::UILevelSelect["button_start"])) {
         if (selectedLevel != -1) {
+            game.selectedLevel = page * 15 + selectedLevel + 1;
             game.changeSceneTo(BATTLE);
+            game.state = READY;
         }
     }
 }

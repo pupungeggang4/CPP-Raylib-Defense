@@ -20,7 +20,8 @@ class Game {
         bool running = true;
 
         // Game var
-        
+        int selectedLevel = 0;
+
         // Function
         Game();
         void loop();

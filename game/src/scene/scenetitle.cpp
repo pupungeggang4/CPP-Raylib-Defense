@@ -19,9 +19,11 @@ void SceneTitle::render(Game& game) {
     Render::drawText("Start Game", UI::UITitle["text_start"]);
     Render::drawRect(UI::UITitle["button_adventure"], PINK);
     Render::drawText("Adventure Mode", UI::UITitle["text_adventure"]);
-    Render::drawRect(UI::UITitle["button_erase"], YELLOW);
+    Render::drawRect(UI::UITitle["button_tutorial"], YELLOW);
+    Render::drawText("Tutorial", UI::UITitle["text_tutorial"]);
+    Render::drawRect(UI::UITitle["button_erase"], PINK);
     Render::drawText("Erase Data", UI::UITitle["text_erase"]);
-    Render::drawRect(UI::UITitle["button_quit"], PINK);
+    Render::drawRect(UI::UITitle["button_quit"], YELLOW);
     Render::drawText("Quit Game", UI::UITitle["text_quit"]);
 }
 
