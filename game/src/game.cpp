@@ -17,6 +17,7 @@ Game::Game() {
     SetWindowSize(width, height);
     #endif
     SetExitKey(KEY_NULL);
+    SetWindowIcon(Asset::icon);
     #endif
 
     Asset::loadAsset();
@@ -41,6 +42,16 @@ void Game::loop() {
     scene->render(*this);
     EndDrawing();
 
+    if (queueSceneChange != -1) {
+        try {
+            scene = scenes[queueSceneChange];
+            scene->ready(*this);
+            queueSceneChange = -1;
+        } catch (...) {
+            running = false;
+        }
+    }
+
     if (WindowShouldClose()) {
         running = false;
     }
@@ -56,6 +67,5 @@ void Game::inputHandle() {
 }
 
 void Game::changeSceneTo(int targetScene) {
-    scene = scenes[targetScene];
-    scene->ready(*this);
+    queueSceneChange = targetScene;
 }

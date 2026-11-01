@@ -26,20 +26,10 @@ class SceneTitle : public Scene {
 
 class SceneLevelSelect : public Scene {
     public:
+        int page = 0;
         int selectedLevel = -1;
 
         SceneLevelSelect();
-        void ready(Game&) override;
-        void update(Game&) override;
-        void render(Game&) override;
-        void mouseUp(Game&, Vector2) override;
-};
-
-class SceneAdventureSelect : public Scene {
-    public:
-        int selectedCharacter = -1;
-
-        SceneAdventureSelect();
         void ready(Game&) override;
         void update(Game&) override;
         void render(Game&) override;

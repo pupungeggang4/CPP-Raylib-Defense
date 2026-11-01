@@ -13,7 +13,7 @@ class Game {
 
         // Game system var
         std::unordered_map<int, shared_ptr<Scene>> scenes;
-        shared_ptr<Scene> scene;
+        shared_ptr<Scene> scene; int queueSceneChange = -1; 
 
         int state = NORMAL;
         bool menu = false;

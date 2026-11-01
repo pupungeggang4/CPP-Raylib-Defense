@@ -5,7 +5,7 @@
 
 class UI {
     public:
-        static std::unordered_map<std::string, std::array<float, 6>> UITitle, UILevelSelect, UIAdventureSelect, UIBattle, UIMenu;
+        static std::unordered_map<std::string, std::array<float, 6>> UITitle, UILevelSelect, UIBattle, UIMenu;
 };
 
 #endif

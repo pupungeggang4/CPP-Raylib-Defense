@@ -17,16 +17,11 @@ std::unordered_map<std::string, std::array<float, 6>> UI::UILevelSelect = {
     {"button_back", {740, 20, 40, 40}},
     {"button_level", {60, 80, 140, 140, 120, 120}},
     {"text_level", {20, 20}},
-    {"button_start", {620, 500, 160, 80}},
-    {"text_start", {640, 520}}
-};
-
-std::unordered_map<std::string, std::array<float, 6>> UI::UIAdventureSelect = {
-    {"text_title", {20, 20}},
-    {"button_back", {740, 20, 40, 40}},
-    {"button_character", {60, 80, 140, 140, 120, 120}},
-    {"description_area", {480, 80, 240, 260}},
-    {"button_start", {620, 500, 160, 80}},
+    {"button_prev", {60, 500, 260, 80}},
+    {"text_prev", {80, 520}},
+    {"button_next", {340, 500, 260, 80}},
+    {"text_next", {360, 520}},
+    {"button_start", {620, 500, 120, 80}},
     {"text_start", {640, 520}}
 };
 

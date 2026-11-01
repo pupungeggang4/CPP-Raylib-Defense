@@ -29,7 +29,7 @@ void SceneTitle::mouseUp(Game& game, Vector2 pos) {
     if (Util::pointInsideRectUI(pos, UI::UITitle["button_start"])) {
         game.changeSceneTo(LEVEL_SELECT);
     } else if (Util::pointInsideRectUI(pos, UI::UITitle["button_adventure"])) {
-        game.changeSceneTo(ADVENTURE_SELECT);
+        game.changeSceneTo(BATTLE);
     } else if (Util::pointInsideRectUI(pos, UI::UITitle["button_quit"])) {
         game.running = false;
     }

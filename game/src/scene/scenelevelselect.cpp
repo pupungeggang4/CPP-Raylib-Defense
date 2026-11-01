@@ -13,6 +13,7 @@ SceneLevelSelect::SceneLevelSelect() {
 }
 
 void SceneLevelSelect::ready(Game& game) {
+    page = 0;
     selectedLevel = -1;
 }
 
@@ -37,9 +38,13 @@ void SceneLevelSelect::render(Game& game) {
             Render::drawRect(rect, GREEN);
         }
         std::array<float, 6> pos = {rect[0] + UI::UILevelSelect["text_level"][0], rect[1] + UI::UILevelSelect["text_level"][1]};
-        Render::drawText(TextFormat("%d", i + 1), pos);
+        Render::drawText(TextFormat("%d-%d", page + 1, i + 1), pos);
     }
 
+    Render::drawRect(UI::UILevelSelect["button_prev"], YELLOW);
+    Render::drawText("Prev", UI::UILevelSelect["text_prev"]);
+    Render::drawRect(UI::UILevelSelect["button_next"], YELLOW);
+    Render::drawText("Next", UI::UILevelSelect["text_next"]);
     Render::drawRect(UI::UILevelSelect["button_start"], YELLOW);
     Render::drawText("Start", UI::UILevelSelect["text_start"]);
 }
@@ -63,7 +68,11 @@ void SceneLevelSelect::mouseUp(Game& game, Vector2 pos) {
         game.changeSceneTo(TITLE);
     }
 
-    if (Util::pointInsideRectUI(pos, UI::UILevelSelect["button_start"])) {
+    if (Util::pointInsideRectUI(pos, UI::UILevelSelect["button_prev"])) {
+        if (page > 0) page -= 1;
+    } else if (Util::pointInsideRectUI(pos, UI::UILevelSelect["button_next"])) {
+        if (page < 7) page += 1;
+    } else if (Util::pointInsideRectUI(pos, UI::UILevelSelect["button_start"])) {
         if (selectedLevel != -1) {
             game.changeSceneTo(BATTLE);
         }
