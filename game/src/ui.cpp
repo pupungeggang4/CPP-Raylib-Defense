@@ -28,6 +28,13 @@ std::unordered_map<std::string, std::array<float, 6>> UI::UILevelSelect = {
     {"text_start", {640, 520}}
 };
 
+std::unordered_map<std::string, std::array<float, 6>> UI::UIWindowReady = {
+    {"rect", {80, 40, 640, 520}},
+    {"text_title", {100, 60}},
+    {"button_start", {320, 440, 160, 80}},
+    {"text_start", {340, 460}}
+};
+
 std::unordered_map<std::string, std::array<float, 6>> UI::UICollection = {
     {"text_title", {20, 20}},
     {"button_back", {740, 20, 40, 40}},

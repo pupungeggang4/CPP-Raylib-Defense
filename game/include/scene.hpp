@@ -5,6 +5,7 @@
 
 class Game;
 class Menu;
+class WindowReady;
 
 class Scene {
     public:
@@ -39,6 +40,7 @@ class SceneLevelSelect : public Scene {
 class SceneBattle : public Scene {
     public:
         shared_ptr<Menu> menu;
+        shared_ptr<WindowReady> windowReady;
 
         SceneBattle();
         void ready(Game&) override;
@@ -59,6 +61,14 @@ class SceneCollection : public Scene {
 class Menu : public Scene {
     public:
         Menu();
+        void ready(Game&) override;
+        void render(Game&) override;
+        void mouseUp(Game&, Vector2) override;
+};
+
+class WindowReady : public Scene {
+    public:
+        WindowReady();
         void ready(Game&) override;
         void render(Game&) override;
         void mouseUp(Game&, Vector2) override;

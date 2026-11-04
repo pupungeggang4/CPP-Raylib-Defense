@@ -7,6 +7,7 @@
 
 SceneBattle::SceneBattle() {
     menu = make_shared<Menu>();
+    windowReady = make_shared<WindowReady>();
 }
 
 void SceneBattle::ready(Game& game) {
@@ -17,6 +18,10 @@ void SceneBattle::update(Game& game) {
 
 void SceneBattle::render(Game& game) {
     Render::drawTexture(Asset::texture["button_menu"], UI::UIBattle["button_menu"]);
+
+    if (game.state == READY) {
+        windowReady->render(game);
+    }
 
     if (game.menu) {
         menu->render(game);
@@ -29,5 +34,8 @@ void SceneBattle::mouseUp(Game& game, Vector2 pos) {
         if (Util::pointInsideRectUI(pos, UI::UIBattle["button_menu"])) game.menu = false;
     } else {
         if (Util::pointInsideRectUI(pos, UI::UIBattle["button_menu"])) game.menu = true;
+        if (game.state == READY) {
+            windowReady->mouseUp(game, pos);
+        }
     }
 }
