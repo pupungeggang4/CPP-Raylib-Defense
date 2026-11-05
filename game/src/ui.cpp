@@ -2,16 +2,16 @@
 
 std::unordered_map<std::string, std::array<float, 6>> UI::UITitle = {
     {"text_title", {20, 20}},
-    {"button_start", {160, 120, 480, 80}},
-    {"text_start", {180, 140}},
-    {"button_adventure", {160, 200, 480, 80}},
-    {"text_adventure", {180, 220}},
-    {"button_tutorial", {160, 280, 480, 80}},
-    {"text_tutorial", {180, 300}},
-    {"button_erase", {160, 360, 480, 80}},
-    {"text_erase", {180, 380}},
-    {"button_quit", {160, 440, 480, 80}},
-    {"text_quit", {180, 460}},
+    {"button_start", {160, 100, 480, 80}},
+    {"text_start", {180, 120}},
+    {"button_adventure", {160, 180, 480, 80}},
+    {"text_adventure", {180, 200}},
+    {"button_tutorial", {160, 260, 480, 80}},
+    {"text_tutorial", {180, 280}},
+    {"button_erase", {160, 340, 480, 80}},
+    {"text_erase", {180, 360}},
+    {"button_quit", {160, 420, 480, 80}},
+    {"text_quit", {180, 440}},
     {"button_collection", {700, 500, 80, 80}}
 };
 
