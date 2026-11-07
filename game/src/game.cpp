@@ -6,11 +6,20 @@ Game::Game() {
     #ifdef __EMSCRIPTEN__
     InitWindow(logicWidth, logicHeight, "Planterguy Defense");
     #else
-    SetConfigFlags(FLAG_WINDOW_HIGHDPI);
+    float aspRatio = 0.75;
     SetConfigFlags(FLAG_VSYNC_HINT);
-    InitWindow(logicWidth, logicHeight, "Planterguy Defense");
-    #ifndef __APPLE__
-    #endif
+    int width = 800, height = 600;
+    InitWindow(width, height, "Planterguy Defense");
+    int mWidth = GetMonitorWidth(0); int mHeight = GetMonitorHeight(0);
+    if (mWidth * aspRatio > height) {
+        height = (int)(mHeight * 0.8); width = (int)(height / aspRatio);
+    } else {
+        width = (int)(mWidth * 0.8); height = (int)(width * aspRatio);
+    }
+    SetWindowSize(width, height);
+    SetWindowPosition((mWidth - width) / 2, (mHeight - height) / 2);
+    Camera2D tempCamera = {0}; camera = tempCamera;
+
     SetExitKey(KEY_NULL);
     SetWindowIcon(Asset::icon);
     #endif
@@ -30,12 +39,15 @@ Game::Game() {
 }
 
 void Game::loop() {
+    camera.zoom = GetRenderWidth() / 800.0f;
     inputHandle();
     scene->update(*this);
 
     BeginDrawing();
+    BeginMode2D(camera);
     ClearBackground(WHITE);
     scene->render(*this);
+    EndMode2D();
     EndDrawing();
 
     if (queueSceneChange != -1) {
@@ -56,6 +68,7 @@ void Game::loop() {
 void Game::inputHandle() {
     if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) {
         Vector2 pos = GetMousePosition();
+        pos = Vector2Scale(pos, 1 / camera.zoom);
         std::cout << pos.x << ' ' << pos.y << std::endl;
 
         scene->mouseUp(*this, pos);
