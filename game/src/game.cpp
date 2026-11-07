@@ -10,6 +10,7 @@ Game::Game() {
     SetConfigFlags(FLAG_VSYNC_HINT);
     int width = 800, height = 600;
     InitWindow(width, height, "Planterguy Defense");
+    #ifndef __APPLE__
     int mWidth = GetMonitorWidth(0); int mHeight = GetMonitorHeight(0);
     if (mWidth * aspRatio > height) {
         height = (int)(mHeight * 0.8); width = (int)(height / aspRatio);
@@ -18,6 +19,7 @@ Game::Game() {
     }
     SetWindowSize(width, height);
     SetWindowPosition((mWidth - width) / 2, (mHeight - height) / 2);
+    #endif
     Camera2D tempCamera = {0}; camera = tempCamera;
 
     SetExitKey(KEY_NULL);
