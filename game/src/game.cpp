@@ -10,11 +10,6 @@ Game::Game() {
     SetConfigFlags(FLAG_VSYNC_HINT);
     InitWindow(logicWidth, logicHeight, "Planterguy Defense");
     #ifndef __APPLE__
-    int width, height;
-    Vector2 scale = GetWindowScaleDPI();
-    width = (int)(logicWidth * scale.x);
-    height = (int)(logicHeight * scale.y);
-    SetWindowSize(width, height);
     #endif
     SetExitKey(KEY_NULL);
     SetWindowIcon(Asset::icon);
