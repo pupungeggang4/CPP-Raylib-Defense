@@ -24,6 +24,7 @@ struct UILevelSelect {
 };
 
 struct UIBattle {
+    Rectangle buttonMenu;
 };
 
 struct UIBattleWindow {
@@ -31,7 +32,14 @@ struct UIBattleWindow {
 };
 
 struct UIMenu {
-    
+    Rectangle rect;
+    Vector2 textPaused;
+    Rectangle buttonResume;
+    Vector2 textResume;
+    Rectangle buttonExit;
+    Vector2 textExit;
+    Rectangle buttonQuit;
+    Vector2 textQuit;
 };
 
 extern UITitle uiTitle;

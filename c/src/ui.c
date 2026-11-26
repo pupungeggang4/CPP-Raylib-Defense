@@ -18,3 +18,18 @@ UILevelSelect uiLevelSelect = {
     {140, 140}, // buttonLevelStep
     {10, 10} // textLevel
 };
+
+UIBattle uiBattle = {
+    {740, 20, 40, 40} // buttonMenu
+};
+
+UIMenu uiMenu = {
+    {160, 140, 480, 320}, // rect
+    {180, 160}, // textPaused
+    {160, 220, 480, 80}, // buttonResume
+    {180, 240}, // textResume
+    {160, 300, 480, 80}, // buttonExit
+    {180, 320}, // textExit
+    {160, 380, 480, 80}, // buttonQuit
+    {180, 400} // textQuit
+};

@@ -36,5 +36,16 @@ void sceneLevelSelectRender(GameVar* gameVar) {
 void sceneLevelSelectMouseUp(GameVar* gameVar, Vector2 pos, int button) {
     if (button == LEFT) {
         if (CheckCollisionPointRec(pos, uiLevelSelect.buttonBack)) gameVar->sceneNext = S_TITLE;
+
+        for (int i = 0; i < 15; i++) {
+            int col = i % 5;
+            int row = (i - col) / 5;
+            Rectangle rect = {
+                uiLevelSelect.buttonLevelStart.x + uiLevelSelect.buttonLevelStep.x * col,
+                uiLevelSelect.buttonLevelStart.y + uiLevelSelect.buttonLevelStep.y * row,
+                uiLevelSelect.buttonLevelSize.x, uiLevelSelect.buttonLevelSize.y
+            };
+            if (CheckCollisionPointRec(pos, rect)) gameVar->sceneNext = S_BATTLE;
+        }
     }
 }

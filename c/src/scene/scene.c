@@ -1,6 +1,6 @@
 #include "scene.h"
 
-void (*sceneReadys[])(GameVar*) = {sceneTitleReady, sceneLevelSelectReady};
-void (*sceneUpdates[])(GameVar*) = {sceneTitleUpdate, sceneLevelSelectUpdate};
-void (*sceneRenders[])(GameVar*) = {sceneTitleRender, sceneLevelSelectRender};
-void (*sceneMouseUps[])(GameVar*, Vector2, int) = {sceneTitleMouseUp, sceneLevelSelectMouseUp};
+void (*sceneReadys[])(GameVar*) = {sceneTitleReady, sceneLevelSelectReady, sceneBattleReady};
+void (*sceneUpdates[])(GameVar*) = {sceneTitleUpdate, sceneLevelSelectUpdate, sceneBattleUpdate};
+void (*sceneRenders[])(GameVar*) = {sceneTitleRender, sceneLevelSelectRender, sceneBattleRender};
+void (*sceneMouseUps[])(GameVar*, Vector2, int) = {sceneTitleMouseUp, sceneLevelSelectMouseUp, sceneBattleMouseUp};
