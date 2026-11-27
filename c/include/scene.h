@@ -19,6 +19,11 @@ void sceneBattleUpdate(GameVar*);
 void sceneBattleRender(GameVar*);
 void sceneBattleMouseUp(GameVar*, Vector2, int);
 
+void sceneWindowStartReady(GameVar*);
+void sceneWindowStartUpdate(GameVar*);
+void sceneWindowStartRender(GameVar*);
+void sceneWindowStartMouseUp(GameVar*, Vector2, int);
+
 void sceneMenuReady(GameVar*);
 void sceneMenuUpdate(GameVar*);
 void sceneMenuRender(GameVar*);

@@ -9,7 +9,8 @@ enum SceneState {ST_NORMAL, ST_READY};
 typedef struct UITitle UITitle;
 typedef struct UILevelSelect UILevelSelect;
 typedef struct UIBattle UIBattle;
-typedef struct UIBattleWindow UIBattleWindow;
+typedef struct UIWindowReady UIWindowReady;
+typedef struct UIWindowReward UIWindowReward;
 typedef struct UIMenu UIMenu;
 
 typedef struct SceneLevelSelectVar SceneLevelSelectVar;

@@ -27,8 +27,15 @@ struct UIBattle {
     Rectangle buttonMenu;
 };
 
-struct UIBattleWindow {
+struct UIWindowStart {
+    Rectangle rect;
+    Vector2 textTitle;
+    Rectangle buttonStart;
+    Vector2 textStart;
+};
 
+struct UIWindowReward {
+    Rectangle rect;
 };
 
 struct UIMenu {
@@ -45,7 +52,8 @@ struct UIMenu {
 extern UITitle uiTitle;
 extern UILevelSelect uiLevelSelect;
 extern UIBattle uiBattle;
-extern UIBattleWindow uiBattleWindow;
+extern UIWindowStart uiWindowStart;
+extern UIWindowReward uiWindowReward;
 extern UIMenu uiMenu;
 
 #endif

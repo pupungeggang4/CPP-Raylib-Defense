@@ -23,6 +23,14 @@ UIBattle uiBattle = {
     {740, 20, 40, 40} // buttonMenu
 };
 
+UIWindowStart uiWindowStart = {
+    {80, 640, 60, 480} // rect
+};
+
+UIWindowReward uiWindowReward = {
+
+};
+
 UIMenu uiMenu = {
     {160, 140, 480, 320}, // rect
     {180, 160}, // textPaused
