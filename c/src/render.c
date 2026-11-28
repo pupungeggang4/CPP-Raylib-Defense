@@ -9,6 +9,6 @@ void drawRect(Rectangle rect, Color color) {
 }
 
 void drawTexture(Texture2D texture, Rectangle rect) {
-    Vector2 pos = {rect.x, rect.x};
+    Vector2 pos = {rect.x, rect.y};
     DrawTextureV(texture, pos, WHITE);
 }

@@ -25,7 +25,13 @@ void sceneTitleRender(GameVar* gameVar) {
 
 void sceneTitleMouseUp(GameVar* gameVar, Vector2 pos, int button) {
     if (button == LEFT) {
-        if (CheckCollisionPointRec(pos, uiTitle.buttonStart)) gameVar->sceneNext = S_LEVEL_SELECT;
-        if (CheckCollisionPointRec(pos, uiTitle.buttonQuit)) gameVar->running = FALSE;
+        if (CheckCollisionPointRec(pos, uiTitle.buttonStart)) {
+            gameVar->sceneNext = S_LEVEL_SELECT;
+            gameVar->mode = CLASSIC;
+        } else if (CheckCollisionPointRec(pos, uiTitle.buttonSurvival)) {
+            gameVar->sceneNext = S_BATTLE;
+            gameVar->mode = SURVIVAL;
+            gameVar->state = ST_START;
+        } else if (CheckCollisionPointRec(pos, uiTitle.buttonQuit)) gameVar->running = FALSE;
     }
 }

@@ -1,5 +1,6 @@
 #include "scene.h"
 
+#include "asset.h"
 #include "ui.h"
 #include "render.h"
 
@@ -15,7 +16,7 @@ void sceneLevelSelectUpdate(GameVar* gameVar) {
 
 void sceneLevelSelectRender(GameVar* gameVar) {
     drawText("Select Level", uiLevelSelect.textTitle, 20, BLACK);
-    drawRect(uiLevelSelect.buttonBack, BLUE);
+    drawTexture(asset.texture[T_BACK], uiLevelSelect.buttonBack);
 
     for (int i = 0; i < 15; i++) {
         int col = i % 5;
@@ -45,7 +46,10 @@ void sceneLevelSelectMouseUp(GameVar* gameVar, Vector2 pos, int button) {
                 uiLevelSelect.buttonLevelStart.y + uiLevelSelect.buttonLevelStep.y * row,
                 uiLevelSelect.buttonLevelSize.x, uiLevelSelect.buttonLevelSize.y
             };
-            if (CheckCollisionPointRec(pos, rect)) gameVar->sceneNext = S_BATTLE;
+            if (CheckCollisionPointRec(pos, rect)) {
+                gameVar->sceneNext = S_BATTLE;
+                gameVar->state = ST_START;
+            }
         }
     }
 }

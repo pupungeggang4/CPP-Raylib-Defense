@@ -7,7 +7,7 @@
 struct GameVar {
     int running; float dt;
     int width; int height; float aspRatio;
-    int scene; int sceneNext; int state; int menu;
+    int scene; int sceneNext; int state; int menu; int mode;
     Camera2D camera;
 };
 

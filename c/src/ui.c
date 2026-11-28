@@ -24,7 +24,10 @@ UIBattle uiBattle = {
 };
 
 UIWindowStart uiWindowStart = {
-    {80, 640, 60, 480} // rect
+    {80, 60, 640, 480}, // rect
+    {100, 80}, // textTite
+    {540, 440, 160, 80}, // buttonStart
+    {560, 460} // textStart
 };
 
 UIWindowReward uiWindowReward = {

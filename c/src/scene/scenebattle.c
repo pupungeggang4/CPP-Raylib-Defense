@@ -1,5 +1,6 @@
 #include "scene.h"
 
+#include "asset.h"
 #include "ui.h"
 #include "render.h"
 
@@ -14,7 +15,9 @@ void sceneBattleUpdate(GameVar* gameVar) {
 }
 
 void sceneBattleRender(GameVar* gameVar) {
-    drawRect(uiBattle.buttonMenu, BLUE);
+    drawTexture(asset.texture[T_MENU], uiBattle.buttonMenu);
+
+    if (gameVar->state == ST_START) sceneWindowStartRender(gameVar);
 
     if (gameVar->menu) {
         sceneMenuRender(gameVar);
@@ -28,6 +31,7 @@ void sceneBattleMouseUp(GameVar* gameVar, Vector2 pos, int button) {
             if (CheckCollisionPointRec(pos, uiBattle.buttonMenu)) gameVar->menu = FALSE;
         } else {
             if (CheckCollisionPointRec(pos, uiBattle.buttonMenu)) gameVar->menu = TRUE;
+            if (gameVar->state == ST_START) sceneWindowStartMouseUp(gameVar, pos, button);
         }
     }
 }
